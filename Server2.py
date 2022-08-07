@@ -144,7 +144,7 @@ def handle_client(conn, addr):
                     playersStatus["sys_status"] = "GAME_OVER";
                     
                     if(alivePlayers == 0):
-                        playersStatus["sys_previousWinner"] = "No one";
+                        pass;
                     else:
                         for i in range(5):
                             if(playersStatus["isAlive" + str(i)]):
@@ -228,7 +228,6 @@ def main():
         conn, addr = server.accept()
         thread = threading.Thread(target=handle_client, args=(conn, addr))
         thread.start()
-        thread.join()
         
     print("[STATUS] All threads finished");
     #os.execv(sys.argv[0], sys.argv)
